@@ -1,4 +1,6 @@
-package server;
+package services;
+
+import server.DoorRemote;
 
 /**
  * Define the remote object that implements the Door interface.
@@ -21,9 +23,8 @@ public class DoorImpl extends java.rmi.server.UnicastRemoteObject
     public boolean isOpen() { return open; }
     // assume the server side can call this method to set the
     // state of this door at any time
-    void setOpen(boolean open) { this.open = open; }
+    public void setOpen(boolean open) { this.open = open; }
     // convenience method for server code
-    String getName() { return name; }
     // override various Object utility methods
     public String toString() { return "DoorImpl:["+ name +"]"; }
     // DoorImpls are equivalent if they are in the same location

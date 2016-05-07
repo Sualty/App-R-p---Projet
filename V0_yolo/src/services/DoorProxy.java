@@ -1,4 +1,7 @@
-package server;
+package services;
+
+import server.Door;
+import server.DoorRemote;
 
 /**
  * Define a proxy for Door. In this version, the name field
@@ -16,7 +19,7 @@ public class DoorProxy implements java.io.Serializable, Door
      * Construct a DoorProxy.
      * @param impl - the remote reference to delegate to.
      */
-    DoorProxy(DoorRemote impl) throws java.rmi.RemoteException
+    public DoorProxy(DoorRemote impl) throws java.rmi.RemoteException
     {
         this.impl = impl;
         name = impl.getLocation();
