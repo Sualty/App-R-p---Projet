@@ -29,9 +29,11 @@ public class DoorServerImpl extends java.rmi.server.UnicastRemoteObject
 
     public DoorServerImpl() throws IOException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, ClassNotFoundException {
         // add a door to the hashmap
-        Class<Door> DoorImpl = (Class<Door>) findClass("services/DoorImpl.class");//TODO verif
+     /*   Class<Door> DoorImpl = (Class<Door>) findClass("services/DoorImpl.class");//TODO verif
         Door impl = (Door) DoorImpl.getConstructor(String.class).newInstance("location1");
+
         hash.put(impl.getLocation(), impl);
+        System.out.println(impl.getLocation());*/
     }
     /**
      * Changed to return the proxy.
@@ -85,12 +87,13 @@ public class DoorServerImpl extends java.rmi.server.UnicastRemoteObject
          */
     public static void main(String[] args)
     {
+        System.out.println(System.getProperty("user.dir"));
         System.setSecurityManager(new java.rmi.RMISecurityManager());
         // make the remote object available to clients
         try
         {
             DoorServerImpl server = new DoorServerImpl();
-            java.rmi.Naming.rebind("rmi://localhost/DoorServer", server);
+            java.rmi.Naming.rebind("rmi://localhost:4243/DoorServer", server);
         }
         catch (Exception e)
         {

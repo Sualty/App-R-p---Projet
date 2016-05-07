@@ -11,8 +11,9 @@ import java.rmi.Naming;
 public class DoorClient{
     public static void main(String[] args) {
         try {
+
             // get the DoorServer from the RMI registry
-            DoorServer server = (DoorServer) Naming.lookup("rmi://localhost/DoorServer");
+            DoorServer server = (DoorServer) Naming.lookup("rmi://localhost:4243/DoorServer");
             // Use DoorServer to get a specific Door
             Door theDoor = server.getDoor("location1");
             // invoke methods on the returned Door

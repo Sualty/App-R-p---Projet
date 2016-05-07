@@ -19,7 +19,7 @@ package classserver;
  */
 public abstract class ClassServer implements Runnable {
 
-  protected static int DEFAULT_SERVER_BASE_PORT = 2001;
+  protected static int DEFAULT_SERVER_BASE_PORT = 4242;
   protected static int DEFAULT_SERVER_PORT_INCREMENT = 20;
   protected static int MAX_RETRY = 50;
 
